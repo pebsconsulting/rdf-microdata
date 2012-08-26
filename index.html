@@ -67,7 +67,9 @@ as of the time of release, and is being used in developing the <a href="https://
 <h2>Note</h2>
 
 <p>This spec is based on the W3C HTML Data Task Force specification and does not support
-GRDDL-type triple generation, such as for html&gt;head&gt;title and <a></a></p>
+GRDDL-type triple generation, such as for html&gt;head&gt;title anchor tags.</p>
+
+<p>If the <code>RDFa</code> parser is available, {RDF::Microdata::Format} will not assert content type <code>text/html</code> or file extension <code>.html</code>, as this is also asserted by RDFa. Instead, the RDFa reader will invoke the microdata reader if an <code>@itemscope</code> attribute is detected.</p>
 
 <h2>Dependencies</h2>
 
