@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Rdf-microdata : Ruby Microdata parser for RDF.rb" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Rdf-microdata</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ruby-rdf/rdf-microdata">View on GitHub</a>
+
+          <h1 id="project_title">Rdf-microdata</h1>
+          <h2 id="project_tagline">Ruby Microdata parser for RDF.rb</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ruby-rdf/rdf-microdata/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ruby-rdf/rdf-microdata/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>RDF::Microdata reader/writer</h1>
+
+<p><a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a> parser for RDF.rb.</p>
+
+<h2>DESCRIPTION</h2>
+
+<p>RDF::Microdata is a Microdata reader for Ruby using the <a href="http://rdf.rubyforge.org/">RDF.rb</a> library suite.</p>
+
+<h2>FEATURES</h2>
+
+<p>RDF::Microdata parses <a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a> into statements or triples using the rules defined in <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a>.</p>
+
+<ul>
+<li>Microdata parser.</li>
+<li>If available, Uses Nokogiri for parsing HTML/SVG, falls back to REXML otherwise (and for JRuby)</li>
+</ul><p>Install with 'gem install rdf-microdata'</p>
+
+<h3>Living implementation</h3>
+
+<p>Microdata to RDF transformation is undergoing active development. This implementation attempts to be up-to-date
+as of the time of release, and is being used in developing the <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> specification</p>
+
+<h3>Microdata Registry</h3>
+
+<p>The parser uses a build-in version of the <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> registry.</p>
+
+<h2>Usage</h2>
+
+<h3>Reading RDF data in the Microdata format</h3>
+
+<pre><code>graph = RDF::Graph.load("etc/foaf.html", :format =&gt; :microdata)
+</code></pre>
+
+<h2>Note</h2>
+
+<p>This spec is based on the W3C HTML Data Task Force specification and does not support
+GRDDL-type triple generation, such as for html&gt;head&gt;title and <a></a></p>
+
+<h2>Dependencies</h2>
+
+<ul>
+<li>
+<a href="http://rubygems.org/gems/rdf">RDF.rb</a> (&gt;= 0.3.4)</li>
+<li>
+<a href="http://rubygems.org/gems/rdf-xsd">RDF::XSD</a> (&gt;= 0.3.4)</li>
+<li>
+<a href="https://rubygems.org/gems/htmlentities">HTMLEntities</a> ('&gt;= 4.3.0')</li>
+<li>Soft dependency on <a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.5.0)</li>
+</ul><h2>Documentation</h2>
+
+<p>Full documentation available on <a href="http://rubydoc.info/github/ruby-rdf/rdf-microdata/frames">Rubydoc.info</a></p>
+
+<h3>Principle Classes</h3>
+
+<ul>
+<li>{RDF::Microdata::Format}
+Asserts :html format, text/html mime-type and .html file extension.</li>
+<li>{RDF::Microdata::Reader}
+
+<ul>
+<li>{RDF::Microdata::Reader::Nokogiri}</li>
+<li>{RDF::Microdata::Reader::REXML}</li>
+</ul>
+</li>
+</ul><h3>Additional vocabularies</h3>
+
+<h2>TODO</h2>
+
+<ul>
+<li>Add support for LibXML and REXML bindings, and use the best available</li>
+<li>Consider a SAX-based parser for improved performance</li>
+</ul><h2>Resources</h2>
+
+<ul>
+<li><a href="http://rdf.rubyforge.org/">RDF.rb</a></li>
+<li><a href="http://rdf.rubyforge.org/microdata">Documentation</a></li>
+<li><a>History</a></li>
+<li><a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a></li>
+<li><a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a></li>
+</ul><h2>Author</h2>
+
+<ul>
+<li>
+<a href="http://github.com/gkellogg">Gregg Kellogg</a> - <a href="http://greggkellogg.net/">http://greggkellogg.net/</a>
+</li>
+</ul><h2>Contributing</h2>
+
+<ul>
+<li>Do your best to adhere to the existing coding conventions and idioms.</li>
+<li>Don't use hard tabs, and don't leave trailing whitespace on any line.</li>
+<li>Do document every method you add using <a href="http://yardoc.org/">YARD</a> annotations. Read the
+<a href="http://rubydoc.info/docs/yard/file/docs/GettingStarted.md">tutorial</a> or just look at the existing code for examples.</li>
+<li>Don't touch the <code>.gemspec</code>, <code>VERSION</code> or <code>AUTHORS</code> files. If you need to
+change them, do so on your private branch only.</li>
+<li>Do feel free to add yourself to the <code>CREDITS</code> file and the corresponding
+list in the the <code>README</code>. Alphabetical order applies.</li>
+<li>Do note that in order for us to merge any non-trivial changes (as a rule
+of thumb, additions larger than about 15 lines of code), we need an
+explicit <a href="http://lists.w3.org/Archives/Public/public-rdf-ruby/2010May/0013.html">public domain dedication</a> on record from you.</li>
+</ul><h2>License</h2>
+
+<p>This is free and unencumbered public domain software. For more information,
+see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying {file:UNLICENSE} file.</p>
+
+<h2>FEEDBACK</h2>
+
+<ul>
+<li><a href="mailto:gregg@greggkellogg.net">gregg@greggkellogg.net</a></li>
+<li><a href="http://rubygems.org/rdf-microdata">http://rubygems.org/rdf-microdata</a></li>
+<li><a href="http://github.com/ruby-rdf/rdf-microdata">http://github.com/ruby-rdf/rdf-microdata</a></li>
+<li><a href="http://lists.w3.org/Archives/Public/public-rdf-ruby/">http://lists.w3.org/Archives/Public/public-rdf-ruby/</a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Rdf-microdata maintained by <a href="https://github.com/ruby-rdf">ruby-rdf</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
