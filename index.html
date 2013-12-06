@@ -31,61 +31,77 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>RDF::Microdata reader/writer</h1>
+        <h1>
+<a name="rdfmicrodata-readerwriter" class="anchor" href="#rdfmicrodata-readerwriter"><span class="octicon octicon-link"></span></a>RDF::Microdata reader/writer</h1>
 
 <p><a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a> parser for RDF.rb.</p>
 
-<h2>DESCRIPTION</h2>
+<p><a href="http://badge.fury.io/rb/rdf-microdata"><img src="https://badge.fury.io/rb/rdf-microdata.png" alt="Gem Version"></a>
+<a href="http://travis-ci.org/ruby-rdf/rdf-microdata"><img src="https://secure.travis-ci.org/ruby-rdf/rdf-microdata.png?branch=master" alt="Build Status"></a></p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>DESCRIPTION</h2>
 
 <p>RDF::Microdata is a Microdata reader for Ruby using the <a href="http://rdf.rubyforge.org/">RDF.rb</a> library suite.</p>
 
-<h2>FEATURES</h2>
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>FEATURES</h2>
 
-<p>RDF::Microdata parses <a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a> into statements or triples using the rules defined in <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a>.</p>
+<p>RDF::Microdata parses <a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a> into statements or triples using the rules defined in <a href="http://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a>.</p>
 
 <ul>
 <li>Microdata parser.</li>
-<li>If available, Uses Nokogiri for parsing HTML/SVG, falls back to REXML otherwise (and for JRuby)</li>
+<li>Uses Nokogiri for parsing HTML</li>
 </ul><p>Install with 'gem install rdf-microdata'</p>
 
-<h3>Living implementation</h3>
+<h3>
+<a name="living-implementation" class="anchor" href="#living-implementation"><span class="octicon octicon-link"></span></a>Living implementation</h3>
 
 <p>Microdata to RDF transformation is undergoing active development. This implementation attempts to be up-to-date
-as of the time of release, and is being used in developing the <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> specification</p>
+as of the time of release, and is being used in developing the <a href="http://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> specification</p>
 
-<h3>Microdata Registry</h3>
+<h3>
+<a name="microdata-registry" class="anchor" href="#microdata-registry"><span class="octicon octicon-link"></span></a>Microdata Registry</h3>
 
-<p>The parser uses a build-in version of the <a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> registry.</p>
+<p>The parser uses a build-in version of the <a href="http://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a> registry.</p>
 
-<h2>Usage</h2>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<h3>Reading RDF data in the Microdata format</h3>
+<h3>
+<a name="reading-rdf-data-in-the-microdata-format" class="anchor" href="#reading-rdf-data-in-the-microdata-format"><span class="octicon octicon-link"></span></a>Reading RDF data in the Microdata format</h3>
 
 <pre><code>graph = RDF::Graph.load("etc/foaf.html", :format =&gt; :microdata)
 </code></pre>
 
-<h2>Note</h2>
+<h2>
+<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note</h2>
 
 <p>This spec is based on the W3C HTML Data Task Force specification and does not support
 GRDDL-type triple generation, such as for html&gt;head&gt;title anchor tags.</p>
 
 <p>If the <code>RDFa</code> parser is available, {RDF::Microdata::Format} will not assert content type <code>text/html</code> or file extension <code>.html</code>, as this is also asserted by RDFa. Instead, the RDFa reader will invoke the microdata reader if an <code>@itemscope</code> attribute is detected.</p>
 
-<h2>Dependencies</h2>
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
 <li>
-<a href="http://rubygems.org/gems/rdf">RDF.rb</a> (&gt;= 0.3.4)</li>
+<a href="http://rubygems.org/gems/rdf">RDF.rb</a> (&gt;= 1.1)</li>
 <li>
-<a href="http://rubygems.org/gems/rdf-xsd">RDF::XSD</a> (&gt;= 0.3.4)</li>
+<a href="http://rubygems.org/gems/rdf-xsd">RDF::XSD</a> (&gt;= 1.1)</li>
+<li>
+<a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.5.9)</li>
 <li>
 <a href="https://rubygems.org/gems/htmlentities">HTMLEntities</a> ('&gt;= 4.3.0')</li>
-<li>Soft dependency on <a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.5.0)</li>
-</ul><h2>Documentation</h2>
+<li>Soft dependency on <a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.5.9)</li>
+</ul><h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>Full documentation available on <a href="http://rubydoc.info/github/ruby-rdf/rdf-microdata/frames">Rubydoc.info</a></p>
 
-<h3>Principle Classes</h3>
+<h3>
+<a name="principle-classes" class="anchor" href="#principle-classes"><span class="octicon octicon-link"></span></a>Principle Classes</h3>
 
 <ul>
 <li>{RDF::Microdata::Format}
@@ -94,31 +110,29 @@ Asserts :html format, text/html mime-type and .html file extension.</li>
 
 <ul>
 <li>{RDF::Microdata::Reader::Nokogiri}</li>
-<li>{RDF::Microdata::Reader::REXML}</li>
 </ul>
 </li>
-</ul><h3>Additional vocabularies</h3>
+</ul><h3>
+<a name="additional-vocabularies" class="anchor" href="#additional-vocabularies"><span class="octicon octicon-link"></span></a>Additional vocabularies</h3>
 
-<h2>TODO</h2>
-
-<ul>
-<li>Add support for LibXML and REXML bindings, and use the best available</li>
-<li>Consider a SAX-based parser for improved performance</li>
-</ul><h2>Resources</h2>
+<h2>
+<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
 
 <ul>
 <li><a href="http://rdf.rubyforge.org/">RDF.rb</a></li>
 <li><a href="http://rdf.rubyforge.org/microdata">Documentation</a></li>
 <li><a>History</a></li>
 <li><a href="http://dev.w3.org/html5/md/Overview.html" title="HTML Microdata">Microdata</a></li>
-<li><a href="https://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a></li>
-</ul><h2>Author</h2>
+<li><a href="http://dvcs.w3.org/hg/htmldata/raw-file/default/microdata-rdf/index.html" title="Microdata to RDF">Microdata RDF</a></li>
+</ul><h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
 
 <ul>
 <li>
 <a href="http://github.com/gkellogg">Gregg Kellogg</a> - <a href="http://greggkellogg.net/">http://greggkellogg.net/</a>
 </li>
-</ul><h2>Contributing</h2>
+</ul><h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <ul>
 <li>Do your best to adhere to the existing coding conventions and idioms.</li>
@@ -132,12 +146,14 @@ list in the the <code>README</code>. Alphabetical order applies.</li>
 <li>Do note that in order for us to merge any non-trivial changes (as a rule
 of thumb, additions larger than about 15 lines of code), we need an
 explicit <a href="http://lists.w3.org/Archives/Public/public-rdf-ruby/2010May/0013.html">public domain dedication</a> on record from you.</li>
-</ul><h2>License</h2>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>This is free and unencumbered public domain software. For more information,
 see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying {file:UNLICENSE} file.</p>
 
-<h2>FEEDBACK</h2>
+<h2>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>FEEDBACK</h2>
 
 <ul>
 <li><a href="mailto:gregg@greggkellogg.net">gregg@greggkellogg.net</a></li>
